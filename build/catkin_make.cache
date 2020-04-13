@@ -1,0 +1,2 @@
+kh4_description:kh4_gazebo:kh4_plugins
+-DCATKIN_DEVEL_PREFIX=/home/javier/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/javier/catkin_ws/install -G Unix Makefiles

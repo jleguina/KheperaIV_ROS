@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+    <include> Include Sun?
+      <uri>model://sun</uri>
+    </include>
+   
+  	<include>
+      <uri>model://kh4_description</uri>
+  	</include>
+  	
+  	<!-- reference to your plugin -->
+    <plugin name="kh4_plugins" filename="libkh4_plugins.so"/>
+
+  </world>
+</sdf>

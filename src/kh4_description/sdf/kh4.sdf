@@ -1,0 +1,290 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name="kh4_robot">
+  <static>false</static>
+    
+    <!-- Robot Chassis -->
+    
+    <link name='chassis'>
+      <pose>0 0 .0312 0 0 0</pose>
+      <inertial>
+      	<mass>0.5</mass>
+    		<inertia>
+      		<ixx>0.000834</ixx>
+      		<ixy>0</ixy>
+      		<ixz>0</ixz>
+      		<iyy>0.000834</iyy>
+      		<iyz>0</iyz>
+      		<izz>0.001403</izz>
+    		</inertia>
+  		</inertial>
+      
+      <!-- Robot Cylindrical Frame -->
+
+      <collision name='collision'>
+        <geometry>
+          <cylinder>
+            <radius>.0704</radius>
+            <length>.053</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name='visual'>
+        <geometry>
+          <cylinder>
+            <radius>.0704</radius>
+            <length>.053</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      
+      <!-- Front Caster -->
+      
+      <collision name='front_caster_collision'>
+      	<pose>0.05 0 -0.0265 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.0047</radius>
+          </sphere>
+        </geometry>
+        
+        <surface>
+        	<friction>
+        		<ode>
+        			<mu>0</mu>
+        			<mu2>0</mu2>
+        			<slip1>1.0</slip1>
+        			<slip2>1.0</slip2>
+        		</ode>
+        	</friction>
+        </surface>
+      </collision>
+      
+      <visual name="front_caster_visual">
+      	<pose>0.05 0 -0.0265 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.0047</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      
+      <!-- Back Caster -->
+      
+      <collision name='back_caster_collision'>
+      	<pose>-0.05 0 -0.0265 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.0047</radius>
+          </sphere>
+        </geometry>
+        
+        <surface>
+        	<friction>
+        		<ode>
+        			<mu>0</mu>
+        			<mu2>0</mu2>
+        			<slip1>1.0</slip1>
+        			<slip2>1.0</slip2>
+        		</ode>
+        	</friction>
+        </surface>
+      </collision>
+      
+      <visual name="back_caster_visual">
+      	<pose>-0.05 0 -0.0265 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.0047</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      
+      <!-- IR Sensors -->
+      
+      <sensor type="ray" name="ray_sensor">
+       <visualize>1</visualize>
+       <pose>0 0 -0.01 0 0 0</pose>
+      	<ray>
+      		<scan>
+      			<horizontal>
+       				<samples>8</samples>
+       				<resolution>1</resolution>
+       				<min_angle>0</min_angle>
+       				<max_angle>5.49778</max_angle>
+       			</horizontal>
+       		</scan>
+       		<range>
+       			<min>0.0705</min> <!-- Need to add the Kh4 radius -->
+       			<max>0.3204</max> <!-- Need to add the Kh4 radius -->
+       		</range>
+       	</ray>
+      </sensor>
+    
+    <!-- Sonar Sensors -->
+      
+      <sensor type="sonar" name="sonar_sensor_N">
+       <visualize>1</visualize>
+       <pose>0 0 0 0 4.71239 0</pose>
+      	<sonar>
+      		<min>0.3204</min> 
+      		<max>2.0704</max>
+      		<radius>0.01</radius>
+       	</sonar>
+      </sensor>
+      
+      <sensor type="sonar" name="sonar_sensor_W">
+       <visualize>1</visualize>
+       <pose>0 0 0 0 4.71239 1.57079</pose>
+      	<sonar>
+      		<min>0.3204</min> 
+      		<max>2.0704</max>
+      		<radius>0.01</radius>
+       	</sonar>
+      </sensor>
+      
+      <sensor type="sonar" name="sonar_sensor_NW">
+       <visualize>1</visualize>
+       <pose>0 0 0 0 4.71239 0.78539</pose>
+      	<sonar>
+      		<min>0.3204</min> 
+      		<max>2.0704</max>
+      		<radius>0.01</radius>
+       	</sonar>
+      </sensor>      
+      
+      <sensor type="sonar" name="sonar_sensor_E">
+       <visualize>1</visualize>
+       <pose>0 0 0 0 4.71239 4.71239</pose>
+      	<sonar>
+      		<min>0.3204</min> 
+      		<max>2.0704</max>
+      		<radius>0.01</radius>
+       	</sonar>
+      </sensor>
+      
+      <sensor type="sonar" name="sonar_sensor_NE">
+       <visualize>1</visualize>
+       <pose>0 0 0 0 4.71239 5.49779</pose>
+      	<sonar>
+      		<min>0.3204</min> 
+      		<max>2.0704</max>
+      		<radius>0.01</radius>
+       	</sonar>
+      </sensor>  
+      
+    <!-- IMU -->
+      
+      <sensor type="IMU" name="inertia_sensor">
+       <visualize>0</visualize>
+       <pose>0 0 0 0 0 0</pose>
+      	<imu>
+      		<orientation_reference_frame>
+      			<localization>GRAV_UP</localization>
+      		</orientation_reference_frame>
+       	</imu>
+      </sensor>
+      
+    </link>
+
+   
+    <!-- Left Wheel --> 
+    
+    <link name="left_wheel">
+    	<pose>0 0.0527 0.021 0 1.5707 1.5707</pose> <!-- Wheels are at a different angle: z_wheel = y_world -->
+    	<inertial>
+      	<mass>0.033</mass>
+    		<inertia>
+      		<ixx>0.000004</ixx>
+      		<ixy>0</ixy>
+      		<ixz>0</ixz>
+      		<iyy>0.000004</iyy>
+      		<iyz>0</iyz>
+      		<izz>0.000007</izz>
+    		</inertia>
+  		</inertial>
+  		
+    	<collision name="collision">
+    		<geometry>
+    			<cylinder>
+    				<radius>0.021</radius>
+    				<length>0.005</length>
+    			</cylinder>
+    		</geometry>
+    	</collision>
+    	
+    	<visual name="visual">
+    		<geometry>
+    			<cylinder>
+    				<radius>0.021</radius>
+    				<length>0.005</length>
+    			</cylinder>
+    		</geometry>	
+    	</visual>
+    </link>
+    
+    <!-- Right Wheel --> 
+    
+    <link name="right_wheel">
+    	<pose>0 -0.0527 0.021 0 1.5707 1.5707</pose> <!-- Wheels are at a different angle: z_wheel = y_world -->
+    	<inertial>
+      	<mass>0.033</mass>
+    		<inertia>
+      		<ixx>0.000004</ixx>
+      		<ixy>0</ixy>
+      		<ixz>0</ixz>
+      		<iyy>0.000004</iyy>
+      		<iyz>0</iyz>
+      		<izz>0.000007</izz>
+    		</inertia>
+  		</inertial>    	
+    	
+    	<collision name="collision">
+    		<geometry>
+    			<cylinder>
+    				<radius>0.021</radius>
+    				<length>0.005</length>
+    			</cylinder>
+    		</geometry>
+    	</collision>
+    	
+    	<visual name="visual">
+    		<geometry>
+    			<cylinder>
+    				<radius>0.021</radius>
+    				<length>0.005</length>
+    			</cylinder>
+    		</geometry>	
+    	</visual>
+    </link>
+    
+    <!-- Left Wheel Hinge -->
+    
+    <joint type="revolute" name="left_wheel_hinge">
+    	<pose>0 0 0 0 0 0</pose>  <!-- Wheels are at a different angle: z_wheel = y_world -->
+    	<child>left_wheel</child>
+    	<parent>chassis</parent>
+    	<axis>
+    		<xyz>0 0 1</xyz>
+    	</axis>
+    </joint>
+        
+    <!-- Rigth Wheel Hinge -->
+    
+    <joint type="revolute" name="right_wheel_hinge">
+    	<pose>0 0 0 0 0 0</pose> <!-- Wheels are at a different angle: z_wheel = y_world -->
+    	<child>right_wheel</child>
+    	<parent>chassis</parent>
+    	<axis>
+    		<xyz>0 0 1</xyz>
+    	</axis>
+    </joint>
+    
+    
+       
+    
+	</model>
+</sdf>
+
+
