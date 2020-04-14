@@ -7,4 +7,7 @@
 subdirs("gtest")
 subdirs("kh4_description")
 subdirs("kh4_gazebo")
+subdirs("pysdf")
 subdirs("kh4_plugins")
+subdirs("learning_tf")
+subdirs("urdf_tutorial")

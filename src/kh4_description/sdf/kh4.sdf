@@ -282,7 +282,29 @@
     </joint>
     
     
-       
+    <!-- Transmissions 
+    
+    <transmission name="tran1">
+    	<type>transmission_interface/SimpleTransmission</type>
+    	<joint name="left_wheel_hinge">
+      	<hardwareInterface>EffortJointInterface</hardwareInterface>
+    	</joint>
+    	<actuator name="left_wheel_motor">
+      	<hardwareInterface>EffortJointInterface</hardwareInterface>
+      	<mechanicalReduction>1</mechanicalReduction>
+    	</actuator>
+  	</transmission>
+    
+    <transmission name="tran1">
+    	<type>transmission_interface/SimpleTransmission</type>
+    	<joint name="right_wheel_hinge">
+      	<hardwareInterface>EffortJointInterface</hardwareInterface>
+    	</joint>
+    	<actuator name="right_wheel_motor">
+      	<hardwareInterface>EffortJointInterface</hardwareInterface>
+      	<mechanicalReduction>1</mechanicalReduction>
+    	</actuator>
+  	</transmission>-->
     
 	</model>
 </sdf>

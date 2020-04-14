@@ -864,8 +864,14 @@ kh4_plugins_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libgazebo_ros_api_pl
 //Value Computed by CMake
 kh4_plugins_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/kh4_plugins
 
+//Value Computed by CMake
+learning_tf_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/learning_tf
+
+//Value Computed by CMake
+learning_tf_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/learning_tf
+
 //Path to a library.
-lib:FILEPATH=/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so
+lib:FILEPATH=/opt/ros/melodic/lib/libtf2.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/melodic/share/message_filters/cmake
@@ -891,6 +897,12 @@ onelib:FILEPATH=/usr/lib/x86_64-linux-gnu/libsdformat.so
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
 
+//Value Computed by CMake
+pysdf_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/pysdf
+
+//Value Computed by CMake
+pysdf_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/pysdf
+
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake
 
@@ -911,6 +923,9 @@ rosgraph_DIR:PATH=/opt/ros/melodic/share/rosgraph/cmake
 
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/melodic/share/rosgraph_msgs/cmake
+
+//The directory containing a CMake configuration file for roslaunch.
+roslaunch_DIR:PATH=/opt/ros/melodic/share/roslaunch/cmake
 
 //The directory containing a CMake configuration file for roslib.
 roslib_DIR:PATH=/opt/ros/melodic/share/roslib/cmake
@@ -1020,8 +1035,17 @@ turtlebot3_teleop_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turt
 //Value Computed by CMake
 turtlebot3_teleop_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3_teleop
 
+//The directory containing a CMake configuration file for turtlesim.
+turtlesim_DIR:PATH=/opt/ros/melodic/share/turtlesim/cmake
+
 //The directory containing a CMake configuration file for urdf.
 urdf_DIR:PATH=/opt/ros/melodic/share/urdf/cmake
+
+//Value Computed by CMake
+urdf_tutorial_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/urdf_tutorial
+
+//Value Computed by CMake
+urdf_tutorial_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/urdf_tutorial
 
 //The directory containing a CMake configuration file for visualization_msgs.
 visualization_msgs_DIR:PATH=/opt/ros/melodic/share/visualization_msgs/cmake
@@ -1356,7 +1380,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

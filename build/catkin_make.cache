@@ -1,2 +1,2 @@
-kh4_description:kh4_gazebo:kh4_plugins
+kh4_description:kh4_gazebo:kh4_plugins:learning_tf:pysdf:urdf_tutorial
 -DCATKIN_DEVEL_PREFIX=/home/javier/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/javier/catkin_ws/install -G Unix Makefiles
