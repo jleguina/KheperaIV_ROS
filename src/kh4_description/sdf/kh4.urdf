@@ -123,6 +123,13 @@
     <axis xyz="0 1 0"/>
   </joint>  
   
+  
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>  
+  
 <!--
   
   <transmission name="left_wheel_transmission">
