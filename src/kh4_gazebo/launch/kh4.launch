@@ -7,7 +7,7 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="model" default="$(find kh4_description)/sdf/kh4.urdf"/>
-
+	<arg name="rvizconfig" default="$(find kh4_description)/rviz/urdf.rviz" />
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="debug" value="$(arg debug)" />
@@ -17,7 +17,7 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
@@ -26,5 +26,15 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+
+  <rosparam command="load"
+            file="$(find kh4_gazebo)/config/joints.yaml"
+            ns="kh4_joint_state_controller" />
+
+  <node name="kh4_controller_spawner" pkg="controller_manager" type="spawner"
+    args="kh4_joint_state_controller
+          --shutdown-timeout 3"/>
 
 </launch>

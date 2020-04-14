@@ -45,6 +45,7 @@
     </visual>
   </link>
   
+  
 
   <link name="chassis_inertia">
     <inertial>
@@ -62,6 +63,7 @@
   </joint>  
   
 <!-- 0 0.0527 -0.0102 -->
+
   
   <link name="left_wheel">
     <inertial>
@@ -124,34 +126,50 @@
   </joint>  
   
   
+  
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>
     </plugin>
   </gazebo>  
   
-<!--
+  
   
   <transmission name="left_wheel_transmission">
   	<type>transmission_interface/SimpleTransmission</type>
   	<joint name="left_wheel_joint">
-    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+    	<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
   	</joint>
   	<actuator name="left_wheel_motor">
-    	<mechanicalReduction>50</mechanicalReduction>
-    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+    	<mechanicalReduction>1</mechanicalReduction>
+    	<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
   	</actuator>
 	</transmission>
 	
   <transmission name="right_wheel_transmission">
   	<type>transmission_interface/SimpleTransmission</type>
   	<joint name="right_wheel_joint">
-    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+    	<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
   	</joint>
   	<actuator name="right_wheel_motor">
-    	<mechanicalReduction>50</mechanicalReduction>
-    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+  		<mechanicalReduction>1</mechanicalReduction>
+    	<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
   	</actuator>
 	</transmission>	
-  -->
+
+
+  <gazebo reference="left_wheel">
+  	<mu1 value="200.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+  </gazebo>
+
+  <gazebo reference="right_wheel">
+  	<mu1 value="200.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+  </gazebo>
+
 </robot>
