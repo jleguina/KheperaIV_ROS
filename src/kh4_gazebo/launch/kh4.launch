@@ -30,11 +30,15 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
 
   <rosparam command="load"
-            file="$(find kh4_gazebo)/config/joints.yaml"
-            ns="kh4_joint_state_controller" />
+            file="$(find kh4_gazebo)/config/diff_drive.yaml"
+            ns="kh4_diff_drive_controller" />
 
   <node name="kh4_controller_spawner" pkg="controller_manager" type="spawner"
-    args="kh4_joint_state_controller
+    args="kh4_diff_drive_controller
           --shutdown-timeout 3"/>
 
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/kh4_diff_drive_controller/cmd_vel"/>
+  </node>
+  
 </launch>
