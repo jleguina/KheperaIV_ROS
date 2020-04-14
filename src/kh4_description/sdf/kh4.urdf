@@ -1,74 +1,84 @@
 <?xml version="1.0" ?>
 <robot name="kh4_robot">
  
-  <link name="kh4_robot_chassis">
-    <inertial>
-      <mass value="0.5"/>
-      <origin rpy="0  0  0" xyz="0  0  0"/>
-      <inertia ixx="0.000834" ixy="0" ixz="0" iyy="0.000834" iyz="0" izz="0.001403"/>
-    </inertial>
-    
-    <collision name="kh4_robot__collision">
-      <origin rpy="0  0  0" xyz="0      0      0.0312"/>
+  <link name="chassis">
+    <collision name="chassis_collision">
+      <origin rpy="0 0 0" xyz="0 0 0.0312"/>
       <geometry>
         <cylinder length=".053" radius=".0704"/>
       </geometry>
     </collision>
     
-    <collision name="kh4_robot__front_caster_collision">
-      <origin rpy="0  0  0" xyz="0.05    0      0.0047"/>
+    <collision name="chassis_front_caster_collision">
+      <origin rpy="0 0 0" xyz="0.05 0 0.0047"/>
       <geometry>
         <sphere radius=".0047"/>
       </geometry>
     </collision>
     
-    <collision name="kh4_robot__back_caster_collision">
-      <origin rpy="0  0  0" xyz="-0.05    0      0.0047"/>
+    <collision name="chassis_back_caster_collision">
+      <origin rpy="0  0  0" xyz="-0.05 0 0.0047"/>
       <geometry>
         <sphere radius=".0047"/>
       </geometry>
     </collision>
     
-    <visual name="kh4_robot__visual">
-      <origin rpy="0  0  0" xyz="0      0      0.0312"/>
+    <visual name="chassis_visual">
+      <origin rpy="0 0 0" xyz="0 0 0.0312"/>
       <geometry>
         <cylinder length=".053" radius=".0704"/>
       </geometry>
     </visual>
     
-    <visual name="kh4_robot__front_caster_visual">
-      <origin rpy="0  0  0" xyz="0.05    0      0.0047"/>
+    <visual name="chassis_front_caster_visual">
+      <origin rpy="0 0 0" xyz="0.05 0 0.0047"/>
       <geometry>
         <sphere radius=".0047"/>
       </geometry>
     </visual>
     
-    <visual name="kh4_robot__back_caster_visual">
-      <origin rpy="0  0  0" xyz="-0.05    0      0.0047"/>
+    <visual name="chassis_back_caster_visual">
+      <origin rpy="0 0 0" xyz="-0.05 0 0.0047"/>
       <geometry>
         <sphere radius=".0047"/>
       </geometry>
     </visual>
   </link>
   
+  <!-- Inertia Chassis dummy link -->
+  <link name="chassis_inertia">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.000834" ixy="0" ixz="0" iyy="0.000834" iyz="0" izz="0.001403"/>
+    </inertial>  	
+  </link>
+  
+  <joint name="chassis_inertia_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="chassis_inertia"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 0"/>
+  </joint>  
+  
   <!-- Left Wheel -->
   
-  <link name="kh4_robot__left_wheel">
+  <link name="left_wheel">
     <inertial>
       <mass value="0.033"/>
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0.0527 0.021"/>
       <inertia ixx="0.000004" ixy="0" ixz="0" iyy="0.000004" iyz="0" izz="0.000007"/>
     </inertial>
     
-    <collision name="kh4_robot__collision">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+    <collision name="left_wheel_collision">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0.0527 0.021"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
     </collision>
     
-    <visual name="kh4_robot__visual">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+    <visual name="left_wheel_visual">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0.0527 0.021"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
@@ -77,44 +87,66 @@
   
   <!-- Right Wheel -->
   
-  <link name="kh4_robot__right_wheel">
+  <link name="right_wheel">
     <inertial>
       <mass value="0.033"/>
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <origin rpy="0 1.5707 1.5707" xyz="0 -0.0527 0.021"/>
       <inertia ixx="0.000004" ixy="0" ixz="0" iyy="0.000004" iyz="0" izz="0.000007"/>
     </inertial>
     
-    <collision name="kh4_robot__collision">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+    <collision name="right_wheel_collision">
+      <origin rpy="0 1.5707 1.5707" xyz="0 -0.0527 0.021"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
     </collision>
     
-    <visual name="kh4_robot__visual">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+    <visual name="right_wheel_visual">
+      <origin rpy="0 1.5707 1.5707" xyz="0 -0.0527 0.021"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
     </visual>
   </link>
   
-  <!-- Wheel Joint -->
+  <!-- Wheel Joints -->
   
-  <joint name="kh4_robot__left_wheel_hinge" type="fixed">
-    <parent link="kh4_robot__chassis"/>
-    <child link="kh4_robot__left_wheel"/>
-    <origin rpy="0      1.5707  1.5707" xyz="0      0.0527  0.021"/>
-    <axis xyz="0  0  1"/>
-    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="chassis"/>
+    <child link="left_wheel"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
   </joint>
   
-  <joint name="kh4_robot__right_wheel_hinge" type="fixed">
-    <parent link="kh4_robot__chassis"/>
-    <child link="kh4_robot__right_wheel"/>
-    <origin rpy="0      1.5707  1.5707" xyz="0     -0.0527  0.021"/>
-    <axis xyz="0  0  1"/>
-    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  <joint name="right_wheel_joint" type="continuous">
+    <parent link="chassis"/>
+    <child link="right_wheel"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
   </joint>  
+  
+  <!-- Wheel Transmissions -->
+  
+  <transmission name="left_wheel_transmission">
+  	<type>transmission_interface/SimpleTransmission</type>
+  	<joint name="left_wheel_joint">
+    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+  	</joint>
+  	<actuator name="left_wheel_motor">
+    	<mechanicalReduction>50</mechanicalReduction>
+    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+  	</actuator>
+	</transmission>
+	
+  <transmission name="right_wheel_transmission">
+  	<type>transmission_interface/SimpleTransmission</type>
+  	<joint name="right_wheel_joint">
+    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+  	</joint>
+  	<actuator name="right_wheel_motor">
+    	<mechanicalReduction>50</mechanicalReduction>
+    	<hardwareInterface>EffortJointInterface</hardwareInterface>
+  	</actuator>
+	</transmission>	
   
 </robot>
