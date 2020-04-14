@@ -3,129 +3,127 @@
  
   <link name="base_link">
     <collision name="chassis_collision">
-      <origin rpy="0 0 0" xyz="0 0 0.0312"/>
+      <!--<origin xyz="0 0 0.0312" rpy="0 0 0"/>-->
       <geometry>
         <cylinder length=".053" radius=".0704"/>
-      </geometry>
-    </collision>
-    
-    <collision name="chassis_front_caster_collision">
-      <origin rpy="0 0 0" xyz="0.05 0 0.0047"/>
-      <geometry>
-        <sphere radius=".0047"/>
-      </geometry>
-    </collision>
-    
-    <collision name="chassis_back_caster_collision">
-      <origin rpy="0  0  0" xyz="-0.05 0 0.0047"/>
-      <geometry>
-        <sphere radius=".0047"/>
       </geometry>
     </collision>
     
     <visual name="chassis_visual">
-      <origin rpy="0 0 0" xyz="0 0 0.0312"/>
+      <!--<origin xyz="0 0 0.0312" rpy="0 0 0"/>-->
       <geometry>
         <cylinder length=".053" radius=".0704"/>
       </geometry>
     </visual>
     
+    <collision name="chassis_front_caster_collision">
+      <origin xyz="0.05 0 -0.0265" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius=".0047"/>
+      </geometry>
+    </collision>
+    
     <visual name="chassis_front_caster_visual">
-      <origin rpy="0 0 0" xyz="0.05 0 0.0047"/>
+      <origin xyz="0.05 0 -0.0265" rpy="0 0 0"/>
       <geometry>
         <sphere radius=".0047"/>
       </geometry>
     </visual>
     
+    <collision name="chassis_back_caster_collision">
+      <origin xyz="-0.05 0 -0.0265" rpy="0  0  0"/>
+      <geometry>
+        <sphere radius=".0047"/>
+      </geometry>
+    </collision>
+    
     <visual name="chassis_back_caster_visual">
-      <origin rpy="0 0 0" xyz="-0.05 0 0.0047"/>
+      <origin xyz="-0.05 0 -0.0265" rpy="0 0 0"/>
       <geometry>
         <sphere radius=".0047"/>
       </geometry>
     </visual>
   </link>
   
-  <!-- Inertia Chassis dummy link -->
+
   <link name="chassis_inertia">
     <inertial>
       <mass value="0.5"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia ixx="0.000834" ixy="0" ixz="0" iyy="0.000834" iyz="0" izz="0.001403"/>
     </inertial>  	
   </link>
-  
+ 
   <joint name="chassis_inertia_joint" type="fixed">
     <parent link="base_link"/>
     <child link="chassis_inertia"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 0"/>
   </joint>  
   
-  <!-- Left Wheel -->
+<!-- 0 0.0527 -0.0102 -->
   
   <link name="left_wheel">
     <inertial>
       <mass value="0.033"/>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0.0527 0.021"/>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <inertia ixx="0.000004" ixy="0" ixz="0" iyy="0.000004" iyz="0" izz="0.000007"/>
     </inertial>
     
     <collision name="left_wheel_collision">
-      <origin rpy="0 1.5707 1.5707" xyz="0 0.0527 0.021"/>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
     </collision>
     
     <visual name="left_wheel_visual">
-      <origin rpy="0 1.5707 1.5707" xyz="0 0.0527 0.021"/>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
     </visual>
   </link>
   
-  <!-- Right Wheel -->
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0.0527 -0.0102" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>  
+  
+ 
   
   <link name="right_wheel">
     <inertial>
       <mass value="0.033"/>
-      <origin rpy="0 1.5707 1.5707" xyz="0 -0.0527 0.021"/>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <inertia ixx="0.000004" ixy="0" ixz="0" iyy="0.000004" iyz="0" izz="0.000007"/>
     </inertial>
     
     <collision name="right_wheel_collision">
-      <origin rpy="0 1.5707 1.5707" xyz="0 -0.0527 0.021"/>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
     </collision>
     
     <visual name="right_wheel_visual">
-      <origin rpy="0 1.5707 1.5707" xyz="0 -0.0527 0.021"/>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
         <cylinder length="0.005" radius="0.021"/>
       </geometry>
     </visual>
   </link>
   
-  <!-- Wheel Joints -->
-  
-  <joint name="left_wheel_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="left_wheel"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-  
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <axis xyz="0 0 1"/>
+    <origin xyz="0 -0.0527 -0.0102" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
   </joint>  
   
-  <!-- Wheel Transmissions -->
+<!--
   
   <transmission name="left_wheel_transmission">
   	<type>transmission_interface/SimpleTransmission</type>
@@ -148,5 +146,5 @@
     	<hardwareInterface>EffortJointInterface</hardwareInterface>
   	</actuator>
 	</transmission>	
-  
+  -->
 </robot>
