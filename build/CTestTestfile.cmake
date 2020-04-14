@@ -5,6 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("urdf_sim_tutorial")
 subdirs("kh4_description")
 subdirs("kh4_gazebo")
 subdirs("pysdf")

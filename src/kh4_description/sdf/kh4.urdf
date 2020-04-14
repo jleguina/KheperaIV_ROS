@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="kh4_robot">
  
-  <link name="chassis">
+  <link name="base_link">
     <collision name="chassis_collision">
       <origin rpy="0 0 0" xyz="0 0 0.0312"/>
       <geometry>
@@ -55,7 +55,7 @@
   </link>
   
   <joint name="chassis_inertia_joint" type="fixed">
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="chassis_inertia"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 0 0"/>
@@ -112,14 +112,14 @@
   <!-- Wheel Joints -->
   
   <joint name="left_wheel_joint" type="continuous">
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="left_wheel"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
   
   <joint name="right_wheel_joint" type="continuous">
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="right_wheel"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 0 1"/>
