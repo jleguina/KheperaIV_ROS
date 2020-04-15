@@ -1,6 +1,8 @@
 <?xml version="1.0" ?>
 <robot name="kh4_robot">
  
+ 	<!-- Chassis -->
+ 	
   <link name="base_link">
     <collision name="chassis_collision">
       <!--<origin xyz="0 0 0.0312" rpy="0 0 0"/>-->
@@ -45,7 +47,7 @@
     </visual>
   </link>
   
-  
+  <!-- Dummy Chassis -->
 
   <link name="chassis_inertia">
     <inertial>
@@ -62,8 +64,14 @@
     <axis xyz="0 0 0"/>
   </joint>  
   
-<!-- 0 0.0527 -0.0102 -->
-
+	<!-- Left Wheel -->
+  
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0.0527 -0.0102" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>  
   
   <link name="left_wheel">
     <inertial>
@@ -86,15 +94,16 @@
       </geometry>
     </visual>
   </link>
+   
   
-  <joint name="left_wheel_joint" type="continuous">
+ 	<!-- Right Wheel -->
+  
+  <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
-    <child link="left_wheel"/>
-    <origin xyz="0 0.0527 -0.0102" rpy="0 0 0"/>
+    <child link="right_wheel"/>
+    <origin xyz="0 -0.0527 -0.0102" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
   </joint>  
-  
- 
   
   <link name="right_wheel">
     <inertial>
@@ -117,15 +126,9 @@
       </geometry>
     </visual>
   </link>
+   
   
-  <joint name="right_wheel_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="right_wheel"/>
-    <origin xyz="0 -0.0527 -0.0102" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-  </joint>  
-  
-  
+  <!-- ROS control -->
   
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -133,7 +136,7 @@
     </plugin>
   </gazebo>  
   
-  
+  <!-- Wheel transmissions -->
   
   <transmission name="left_wheel_transmission">
   	<type>transmission_interface/SimpleTransmission</type>
@@ -157,7 +160,7 @@
   	</actuator>
 	</transmission>	
 
-
+	<!-- Wheel gazebo parameters -->
 
   <gazebo reference="left_wheel">
   	<mu1 value="200.0"/>
@@ -172,5 +175,96 @@
     <kp value="10000000.0" />
     <kd value="1.0" />
   </gazebo>
+
+	<!-- IR Sensor -->
+	
+  <joint name="IR_joint" type="fixed">
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="IR_link"/>
+  </joint>
+
+  <link name="IR_link">
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+    
+  </link>	
+
+  <!-- IR Plugin -->
+  <gazebo reference="IR_link">
+    <sensor type="ray" name="ray_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+      		<horizontal>
+       			<samples>8</samples>
+       			<resolution>1</resolution>
+       			<min_angle>0</min_angle>
+       			<max_angle>5.49778</max_angle>
+       		</horizontal>
+       	</scan>
+       	<range>
+       		<min>0.0705</min> <!-- Need to add the Kh4 radius -->
+       		<max>0.3204</max> <!-- Need to add the Kh4 radius -->
+       	</range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters must be base based on published spec for Vishay Telefunken TCRT5000 -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/kh4/laser/scan</topicName>
+        <frameName>IR_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+	
+	<!-- IMU Sensor -->
+
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+  </joint>
+
+  <link name="imu_link">
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>	
+
+
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
 
 </robot>
