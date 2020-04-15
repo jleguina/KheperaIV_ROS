@@ -23,6 +23,8 @@
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
         args="-z 1.0 -unpause -urdf -model robot -param robot_description" respawn="false" output="screen" />
 
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+
   <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
@@ -41,4 +43,7 @@
     <param name="default_topic" value="/kh4_diff_drive_controller/cmd_vel"/>
   </node>
   
+  <!-- 
+  <rosparam file="$(find kh4_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/>
+ -->
 </launch>
