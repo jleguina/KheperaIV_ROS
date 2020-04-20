@@ -967,24 +967,6 @@ clean: kh4_description/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory kh4_gazebo
-
-# Convenience name for "all" pass in the directory.
-kh4_gazebo/all:
-
-.PHONY : kh4_gazebo/all
-
-# Convenience name for "clean" pass in the directory.
-kh4_gazebo/clean:
-
-.PHONY : kh4_gazebo/clean
-
-# Convenience name for "preinstall" pass in the directory.
-kh4_gazebo/preinstall:
-
-.PHONY : kh4_gazebo/preinstall
-
-#=============================================================================
 # Directory level rules for directory pysdf
 
 # Convenience name for "all" pass in the directory.
@@ -3203,6 +3185,24 @@ urdf_tutorial/CMakeFiles/_run_tests_urdf_tutorial_roslaunch-check.dir/clean:
 clean: urdf_tutorial/CMakeFiles/_run_tests_urdf_tutorial_roslaunch-check.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory kh4_gazebo
+
+# Convenience name for "all" pass in the directory.
+kh4_gazebo/all:
+
+.PHONY : kh4_gazebo/all
+
+# Convenience name for "clean" pass in the directory.
+kh4_gazebo/clean:
+
+.PHONY : kh4_gazebo/clean
+
+# Convenience name for "preinstall" pass in the directory.
+kh4_gazebo/preinstall:
+
+.PHONY : kh4_gazebo/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.

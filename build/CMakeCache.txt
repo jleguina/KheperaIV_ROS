@@ -693,7 +693,7 @@ ZIP_LIBRARY_z:FILEPATH=/usr/lib/x86_64-linux-gnu/libz.so
 ZIP_LIBRARY_zip:FILEPATH=/usr/lib/x86_64-linux-gnu/libzip.so
 
 //The directory containing a CMake configuration file for ZeroMQ.
-ZeroMQ_DIR:PATH=ZeroMQ_DIR-NOTFOUND
+ZeroMQ_DIR:PATH=/home/javier/anaconda3/lib/cmake/ZeroMQ
 
 //Path to a library.
 ZeroMQ_LIBRARY_zmq:FILEPATH=/usr/lib/x86_64-linux-gnu/libzmq.so
@@ -844,6 +844,12 @@ interactive_markers_DIR:PATH=/opt/ros/melodic/share/interactive_markers/cmake
 jsoncpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/jsoncpp
 
 //Value Computed by CMake
+kh4_2dnav_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/kh4_2dnav
+
+//Value Computed by CMake
+kh4_2dnav_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/kh4_2dnav
+
+//Value Computed by CMake
 kh4_description_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/kh4_description
 
 //Value Computed by CMake
@@ -871,7 +877,7 @@ learning_tf_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/learning_tf
 learning_tf_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/learning_tf
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/melodic/lib/libtf2.so
+lib:FILEPATH=/opt/ros/melodic/lib/libxmlrpcpp.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/melodic/share/message_filters/cmake
@@ -881,6 +887,9 @@ message_generation_DIR:PATH=/opt/ros/melodic/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
+
+//The directory containing a CMake configuration file for move_base.
+move_base_DIR:PATH=move_base_DIR-NOTFOUND
 
 //Value Computed by CMake
 my_first_ros_pkg_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/my_first_ros_pkg
