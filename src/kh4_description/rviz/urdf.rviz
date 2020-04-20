@@ -29,7 +29,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -179,7 +179,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -203,7 +203,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.486889839172363
+      Distance: 4.203742027282715
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -218,10 +218,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6953970193862915
+      Pitch: 0.6353969573974609
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.5135819911956787
+      Yaw: 5.896757125854492
     Saved: ~
 Window Geometry:
   Displays:
@@ -239,5 +239,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1216
-  X: 615
-  Y: 79
+  X: 244
+  Y: 161
