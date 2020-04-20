@@ -850,6 +850,12 @@ kh4_2dnav_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/kh4_2dnav
 kh4_2dnav_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/kh4_2dnav
 
 //Value Computed by CMake
+kh4_control_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/kh4_control
+
+//Value Computed by CMake
+kh4_control_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/kh4_control
+
+//Value Computed by CMake
 kh4_description_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/kh4_description
 
 //Value Computed by CMake
@@ -1395,7 +1401,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/javier/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/javier/catkin_ws/build/urdf_sim_tutorial/cmake_install.cmake")
+  include("/home/javier/catkin_ws/build/kh4_control/cmake_install.cmake")
   include("/home/javier/catkin_ws/build/kh4_description/cmake_install.cmake")
   include("/home/javier/catkin_ws/build/pysdf/cmake_install.cmake")
   include("/home/javier/catkin_ws/build/kh4_plugins/cmake_install.cmake")

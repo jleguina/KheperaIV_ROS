@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("urdf_sim_tutorial")
+subdirs("kh4_control")
 subdirs("kh4_description")
 subdirs("pysdf")
 subdirs("kh4_plugins")
