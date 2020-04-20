@@ -2,7 +2,7 @@ prefix=/home/javier/catkin_ws/install
 
 Name: kh4_control
 Description: Description of kh4_control
-Version: 0.0.0
+Version: 0.0.1
 Cflags: 
 Libs: -L${prefix}/lib 
 Requires: 

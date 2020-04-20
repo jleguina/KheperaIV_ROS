@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "kh4_control"
 PROJECT_SPACE_DIR = "/home/javier/catkin_ws/devel"
-PROJECT_VERSION = "0.0.0"
+PROJECT_VERSION = "0.0.1"

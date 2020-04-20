@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "kh4_control")
-set(kh4_control_VERSION "0.0.0")
-set(kh4_control_MAINTAINER "javier <javier@todo.todo>")
+set(kh4_control_VERSION "0.0.1")
+set(kh4_control_MAINTAINER "Javier Leguina <javierleguina98@gmail.com>")
 set(kh4_control_PACKAGE_FORMAT "2")
 set(kh4_control_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
 set(kh4_control_BUILD_EXPORT_DEPENDS "roscpp" "rospy" "std_msgs")

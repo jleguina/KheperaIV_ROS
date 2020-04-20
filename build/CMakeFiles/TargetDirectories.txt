@@ -72,13 +72,6 @@
 /home/javier/catkin_ws/build/kh4_description/CMakeFiles/install/local.dir
 /home/javier/catkin_ws/build/kh4_description/CMakeFiles/rebuild_cache.dir
 /home/javier/catkin_ws/build/kh4_description/CMakeFiles/install.dir
-/home/javier/catkin_ws/build/pysdf/CMakeFiles/install/strip.dir
-/home/javier/catkin_ws/build/pysdf/CMakeFiles/edit_cache.dir
-/home/javier/catkin_ws/build/pysdf/CMakeFiles/list_install_components.dir
-/home/javier/catkin_ws/build/pysdf/CMakeFiles/test.dir
-/home/javier/catkin_ws/build/pysdf/CMakeFiles/install/local.dir
-/home/javier/catkin_ws/build/pysdf/CMakeFiles/rebuild_cache.dir
-/home/javier/catkin_ws/build/pysdf/CMakeFiles/install.dir
 /home/javier/catkin_ws/build/kh4_plugins/CMakeFiles/list_install_components.dir
 /home/javier/catkin_ws/build/kh4_plugins/CMakeFiles/edit_cache.dir
 /home/javier/catkin_ws/build/kh4_plugins/CMakeFiles/install.dir

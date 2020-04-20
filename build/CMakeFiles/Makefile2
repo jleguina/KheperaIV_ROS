@@ -985,24 +985,6 @@ kh4_description/preinstall:
 .PHONY : kh4_description/preinstall
 
 #=============================================================================
-# Directory level rules for directory pysdf
-
-# Convenience name for "all" pass in the directory.
-pysdf/all:
-
-.PHONY : pysdf/all
-
-# Convenience name for "clean" pass in the directory.
-pysdf/clean:
-
-.PHONY : pysdf/clean
-
-# Convenience name for "preinstall" pass in the directory.
-pysdf/preinstall:
-
-.PHONY : pysdf/preinstall
-
-#=============================================================================
 # Directory level rules for directory kh4_plugins
 
 # Convenience name for "all" pass in the directory.
