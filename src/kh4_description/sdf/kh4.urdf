@@ -237,7 +237,7 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/kh4/laser/scan</topicName>
+        <topicName>/sensor_msgs/LaserScan</topicName>
         <frameName>IR_link</frameName>
       </plugin>
     </sensor>
@@ -269,7 +269,7 @@
       <visualize>0</visualize>
       <topic>__default_topic__</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <topicName>/kh4/imu/data</topicName>
+        <topicName>/sensor_msgs/imu</topicName>
         <bodyName>imu_link</bodyName>
         <updateRateHZ>10.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
@@ -324,7 +324,7 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/kh4/sonar/scan</topicName>
+        <topicName>/sensor_msgs/SonarScan</topicName>
         <frameName>sonar_link</frameName>
       </plugin>
     </sensor>
