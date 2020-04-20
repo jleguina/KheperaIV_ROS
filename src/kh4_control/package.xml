@@ -59,6 +59,11 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 
+  <!-- Control deps -->
+  <build_export_depend>move_base_msgs</build_export_depend>
+  <exec_depend>move_base_msgs</exec_depend>
+  <build_export_depend>actionlib</build_export_depend>
+  <exec_depend>actionlib</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
