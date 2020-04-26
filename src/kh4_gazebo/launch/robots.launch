@@ -1,0 +1,54 @@
+<launch>
+
+	<arg name="model" default="$(find kh4_description)/sdf/kh4.urdf"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+ 
+  <!-- BEGIN ROBOT 1-->
+  <group ns="robot1">
+    <param name="tf_prefix" value="robot1_tf" />
+    <include file="$(find kh4_gazebo)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0 -y 1 -z 0" />
+      <arg name="robot_name"  value="Robot1" />
+    </include>
+    
+    <!-- Controller -->
+  	<rosparam command="load"
+            	file="$(find kh4_gazebo)/config/diff_drive.yaml"
+            	ns="robot1" />
+
+  	<node name="kh4_controller_spawner_R1" pkg="controller_manager" type="spawner"
+    			args="kh4_diff_drive_controller">
+    </node>
+    		
+    <!--	-->
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    	<param name="default_topic" value="/robot1/kh4_diff_drive_controller/cmd_vel"/>
+  	</node>
+    
+  </group>
+ 
+  <!-- BEGIN ROBOT 2
+  <group ns="robot2">
+    <param name="tf_prefix" value="robot2_tf" />
+    <include file="$(find kh4_gazebo)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 1 -y 1 -z 0" />
+      <arg name="robot_name"  value="Robot2" />
+    </include> -->
+    
+    <!-- Controller 
+  	<rosparam command="load"
+            	file="$(find kh4_gazebo)/config/diff_drive.yaml"
+            	ns="robot2" />
+
+  	<node name="kh4_controller_spawner_R2" pkg="controller_manager" type="spawner"
+    			args="kh4_diff_drive_controller">
+    </node>-->
+    		
+    <!--	
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    	<param name="default_topic" value="/robot1/kh4_diff_drive_controller/cmd_vel"/>
+  	</node>
+    
+  </group>-->
+</launch>

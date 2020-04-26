@@ -1,0 +1,8 @@
+prefix=/home/javier/catkin_ws/install
+
+Name: multi_robot
+Description: Description of multi_robot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

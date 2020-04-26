@@ -1,0 +1,25 @@
+<launch>
+		<arg name="robot_name"/>
+    <arg name="init_pose"/>
+    <arg name="model" default="$(find kh4_description)/sdf/kh4.urdf"/>
+    
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+    
+  	<!-- Push robot_description to factory and spawn robot in gazebo -->
+  	<node name="urdf_spawner" 
+  				pkg="gazebo_ros" 
+  				type="spawn_model"
+        	args="$(arg init_pose) -unpause -urdf -model $(arg robot_name) -param robot_description" 
+        	respawn="false" 
+        	output="screen" />
+		
+		
+		<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+		
+		
+  	<node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+    	<param name="publish_frequency" type="double" value="30.0" />
+  	</node>
+  	
+  			
+</launch>
