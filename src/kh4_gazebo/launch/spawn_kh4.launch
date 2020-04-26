@@ -25,7 +25,7 @@
 	<node name="joint_state_publisher" 
 				pkg="joint_state_publisher" 
 				type="joint_state_publisher" >
-				<param name="tf_prefix" type="string" value="$(arg namespace_arg)"/>
+				<!-- <param name="tf_prefix" type="string" value="$(arg namespace_arg)"/> -->
 	</node>
 
   <node pkg="robot_state_publisher" 
