@@ -7,5 +7,5 @@
 subdirs("gtest")
 subdirs("kh4_control")
 subdirs("kh4_description")
-subdirs("kh4_plugins")
 subdirs("kh4_gazebo")
+subdirs("kh4_plugins")

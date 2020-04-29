@@ -3,7 +3,7 @@
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="false"/>
+  <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
 
@@ -23,12 +23,12 @@
   <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
   
 	<!-- RVIZ configuration -->
-	<arg name="rvizconfig" default="$(find kh4_description)/rviz/urdf.rviz" />
+	<arg name="rvizconfig" default="/home/javier/.rviz/default.rviz" />
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
 
 	<!-- Spawn robot1-->
   <group ns="robot1">
-  	<!--<param name="tf_prefix" value="robot1_tf" />-->
+  	<param name="tf_prefix" value="robot1"/>
     <include file="$(find kh4_gazebo)/launch/spawn_kh4.launch">
       <arg name="name" value="/robot1"/>
       <arg name="pos_x" value="0.0"/>
@@ -37,19 +37,16 @@
   </group>
   
   
-	<!-- Spawn robot2 
+	<!-- Spawn robot2 -->
   <group ns="robot2">
+		<param name="tf_prefix" value="robot2"/>
     <include file="$(find kh4_gazebo)/launch/spawn_kh4.launch">
       <arg name="name" value="/robot2"/>
       <arg name="pos_x" value="1.0"/>
       <arg name="namespace_arg" value="/robot2"/>
     </include>
   </group>
--->
-  
-  
 
   
-	
-
+  
 </launch>

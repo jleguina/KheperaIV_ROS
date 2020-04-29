@@ -133,8 +133,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/javier/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/javier/catkin_ws/build/kh4_control/cmake_install.cmake")
   include("/home/javier/catkin_ws/build/kh4_description/cmake_install.cmake")
-  include("/home/javier/catkin_ws/build/kh4_plugins/cmake_install.cmake")
   include("/home/javier/catkin_ws/build/kh4_gazebo/cmake_install.cmake")
+  include("/home/javier/catkin_ws/build/kh4_plugins/cmake_install.cmake")
 
 endif()
 

@@ -369,7 +369,7 @@ LSB_FOUND:BOOL=TRUE
 LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 
 //Path to a program.
-NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
+NOSETESTS:FILEPATH=/home/javier/anaconda3/bin/nosetests
 
 //x
 OGRE_CONFIG_INCLUDE_DIR:PATH=/usr/include/OGRE
@@ -657,7 +657,7 @@ SDFormat_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/sdformat
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
 //Name of the computer/site where compile is being run
-SITE:STRING=Javier-UX390
+SITE:STRING=javier-ux390uak
 
 //Path to a library.
 SWSCALE_LIBRARY_swscale:FILEPATH=/usr/lib/x86_64-linux-gnu/libswscale.so
@@ -693,7 +693,7 @@ ZIP_LIBRARY_z:FILEPATH=/usr/lib/x86_64-linux-gnu/libz.so
 ZIP_LIBRARY_zip:FILEPATH=/usr/lib/x86_64-linux-gnu/libzip.so
 
 //The directory containing a CMake configuration file for ZeroMQ.
-ZeroMQ_DIR:PATH=/home/javier/anaconda3/lib/cmake/ZeroMQ
+ZeroMQ_DIR:PATH=ZeroMQ_DIR-NOTFOUND
 
 //Path to a library.
 ZeroMQ_LIBRARY_zmq:FILEPATH=/usr/lib/x86_64-linux-gnu/libzmq.so
@@ -716,23 +716,11 @@ actionlib_DIR:PATH=/opt/ros/melodic/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/melodic/share/actionlib_msgs/cmake
 
-//Value Computed by CMake
-beginner_tutorials_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/beginner_tutorials
-
-//Value Computed by CMake
-beginner_tutorials_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/beginner_tutorials
-
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 
-//The directory containing a CMake configuration file for class_loader.
-class_loader_DIR:PATH=/opt/ros/melodic/share/class_loader/cmake
-
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
-
-//The directory containing a CMake configuration file for diagnostic_msgs.
-diagnostic_msgs_DIR:PATH=/opt/ros/melodic/share/diagnostic_msgs/cmake
 
 //The directory containing a CMake configuration file for dynamic_reconfigure.
 dynamic_reconfigure_DIR:PATH=/opt/ros/melodic/share/dynamic_reconfigure/cmake
@@ -837,17 +825,8 @@ ignition-msgs1_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/ignition-msgs1
 //The directory containing a CMake configuration file for ignition-transport4.
 ignition-transport4_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/ignition-transport4
 
-//The directory containing a CMake configuration file for interactive_markers.
-interactive_markers_DIR:PATH=/opt/ros/melodic/share/interactive_markers/cmake
-
 //The directory containing a CMake configuration file for jsoncpp.
 jsoncpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/jsoncpp
-
-//Value Computed by CMake
-kh4_2dnav_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/kh4_2dnav
-
-//Value Computed by CMake
-kh4_2dnav_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/kh4_2dnav
 
 //Value Computed by CMake
 kh4_control_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/kh4_control
@@ -876,14 +855,8 @@ kh4_plugins_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libgazebo_ros_api_pl
 //Value Computed by CMake
 kh4_plugins_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/kh4_plugins
 
-//Value Computed by CMake
-learning_tf_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/learning_tf
-
-//Value Computed by CMake
-learning_tf_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/learning_tf
-
 //Path to a library.
-lib:FILEPATH=/opt/ros/melodic/lib/libxmlrpcpp.so
+lib:FILEPATH=/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/melodic/share/message_filters/cmake
@@ -894,41 +867,11 @@ message_generation_DIR:PATH=/opt/ros/melodic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 
-//The directory containing a CMake configuration file for move_base.
-move_base_DIR:PATH=move_base_DIR-NOTFOUND
-
-//Value Computed by CMake
-multi_robot_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/multi_robot
-
-//Value Computed by CMake
-multi_robot_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/multi_robot
-
-//Value Computed by CMake
-my_first_ros_pkg_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/my_first_ros_pkg
-
-//Value Computed by CMake
-my_first_ros_pkg_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/my_first_ros_pkg
-
-//The directory containing a CMake configuration file for nav_msgs.
-nav_msgs_DIR:PATH=/opt/ros/melodic/share/nav_msgs/cmake
-
 //Path to a library.
 onelib:FILEPATH=/usr/lib/x86_64-linux-gnu/libsdformat.so
 
-//The directory containing a CMake configuration file for pluginlib.
-pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
-
-//Value Computed by CMake
-pysdf_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/pysdf
-
-//Value Computed by CMake
-pysdf_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/pysdf
-
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake
-
-//The directory containing a CMake configuration file for rosconsole_bridge.
-rosconsole_bridge_DIR:PATH=/opt/ros/melodic/share/rosconsole_bridge/cmake
 
 //The directory containing a CMake configuration file for roscpp.
 roscpp_DIR:PATH=/opt/ros/melodic/share/roscpp/cmake
@@ -944,9 +887,6 @@ rosgraph_DIR:PATH=/opt/ros/melodic/share/rosgraph/cmake
 
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/melodic/share/rosgraph_msgs/cmake
-
-//The directory containing a CMake configuration file for roslaunch.
-roslaunch_DIR:PATH=/opt/ros/melodic/share/roslaunch/cmake
 
 //The directory containing a CMake configuration file for roslib.
 roslib_DIR:PATH=/opt/ros/melodic/share/roslib/cmake
@@ -986,99 +926,6 @@ tf_DIR:PATH=/opt/ros/melodic/share/tf/cmake
 
 //The directory containing a CMake configuration file for trajectory_msgs.
 trajectory_msgs_DIR:PATH=/opt/ros/melodic/share/trajectory_msgs/cmake
-
-//Value Computed by CMake
-turtlebot3_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turtlebot3
-
-//Value Computed by CMake
-turtlebot3_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3
-
-//Value Computed by CMake
-turtlebot3_bringup_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turtlebot3_bringup
-
-//Value Computed by CMake
-turtlebot3_bringup_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3_bringup
-
-//Value Computed by CMake
-turtlebot3_description_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turtlebot3_description
-
-//Value Computed by CMake
-turtlebot3_description_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3_description
-
-//Value Computed by CMake
-turtlebot3_example_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turtlebot3_example
-
-//Value Computed by CMake
-turtlebot3_example_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3_example
-
-//Value Computed by CMake
-turtlebot3_fake_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3_simulations/turtlebot3_fake
-
-//Value Computed by CMake
-turtlebot3_fake_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake
-
-//Value Computed by CMake
-turtlebot3_gazebo_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3_simulations/turtlebot3_gazebo
-
-//Value Computed by CMake
-turtlebot3_gazebo_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo
-
-//Value Computed by CMake
-turtlebot3_msgs_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3_msgs
-
-//The directory containing a CMake configuration file for turtlebot3_msgs.
-turtlebot3_msgs_DIR:PATH=/home/javier/catkin_ws/devel/share/turtlebot3_msgs/cmake
-
-//Value Computed by CMake
-turtlebot3_msgs_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3_msgs
-
-//Value Computed by CMake
-turtlebot3_navigation_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turtlebot3_navigation
-
-//Value Computed by CMake
-turtlebot3_navigation_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3_navigation
-
-//Value Computed by CMake
-turtlebot3_simulations_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3_simulations/turtlebot3_simulations
-
-//Value Computed by CMake
-turtlebot3_simulations_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3_simulations/turtlebot3_simulations
-
-//Value Computed by CMake
-turtlebot3_slam_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turtlebot3_slam
-
-//Value Computed by CMake
-turtlebot3_slam_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3_slam
-
-//Value Computed by CMake
-turtlebot3_teleop_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/turtlebot3/turtlebot3_teleop
-
-//Value Computed by CMake
-turtlebot3_teleop_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/turtlebot3/turtlebot3_teleop
-
-//The directory containing a CMake configuration file for turtlesim.
-turtlesim_DIR:PATH=/opt/ros/melodic/share/turtlesim/cmake
-
-//The directory containing a CMake configuration file for urdf.
-urdf_DIR:PATH=/opt/ros/melodic/share/urdf/cmake
-
-//Value Computed by CMake
-urdf_sim_tutorial_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/urdf_sim_tutorial
-
-//Value Computed by CMake
-urdf_sim_tutorial_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/urdf_sim_tutorial
-
-//Value Computed by CMake
-urdf_tutorial_BINARY_DIR:STATIC=/home/javier/catkin_ws/build/urdf_tutorial
-
-//Value Computed by CMake
-urdf_tutorial_SOURCE_DIR:STATIC=/home/javier/catkin_ws/src/urdf_tutorial
-
-//The directory containing a CMake configuration file for visualization_msgs.
-visualization_msgs_DIR:PATH=/opt/ros/melodic/share/visualization_msgs/cmake
-
-//The directory containing a CMake configuration file for xacro.
-xacro_DIR:PATH=/opt/ros/melodic/share/xacro/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake

@@ -935,6 +935,24 @@ kh4_description/preinstall:
 .PHONY : kh4_description/preinstall
 
 #=============================================================================
+# Directory level rules for directory kh4_gazebo
+
+# Convenience name for "all" pass in the directory.
+kh4_gazebo/all:
+
+.PHONY : kh4_gazebo/all
+
+# Convenience name for "clean" pass in the directory.
+kh4_gazebo/clean:
+
+.PHONY : kh4_gazebo/clean
+
+# Convenience name for "preinstall" pass in the directory.
+kh4_gazebo/preinstall:
+
+.PHONY : kh4_gazebo/preinstall
+
+#=============================================================================
 # Directory level rules for directory kh4_plugins
 
 # Convenience name for "all" pass in the directory.
@@ -2737,24 +2755,6 @@ kh4_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/clean:
 clean: kh4_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/clean
 
 .PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory kh4_gazebo
-
-# Convenience name for "all" pass in the directory.
-kh4_gazebo/all:
-
-.PHONY : kh4_gazebo/all
-
-# Convenience name for "clean" pass in the directory.
-kh4_gazebo/clean:
-
-.PHONY : kh4_gazebo/clean
-
-# Convenience name for "preinstall" pass in the directory.
-kh4_gazebo/preinstall:
-
-.PHONY : kh4_gazebo/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.

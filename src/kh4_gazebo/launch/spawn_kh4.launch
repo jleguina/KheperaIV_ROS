@@ -22,16 +22,19 @@
         respawn="false" output="screen">
   </node>
   
+<!---->
 	<node name="joint_state_publisher" 
 				pkg="joint_state_publisher" 
 				type="joint_state_publisher" >
-				<!-- <param name="tf_prefix" type="string" value="$(arg namespace_arg)"/> -->
+				<param name="tf_prefix" type="string" value="$(arg namespace_arg)"/>
 	</node>
+
 
   <node pkg="robot_state_publisher" 
   			type="robot_state_publisher"  
   			name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
+		<!-- <param name="tf_prefix" type="string" value="$(arg namespace_arg)"/> -->
   </node>
 
 	<!--
@@ -41,7 +44,7 @@
 	
 	<!-- Controller -->
   <rosparam command="load"
-            file="$(find kh4_gazebo)/config/diff_drive.yaml"
+            file="$(find kh4_gazebo)/config/$(arg namespace_arg)_diff_drive.yaml"
             ns="kh4_controller" />
 
   <node name="kh4_controller_spawner" 
