@@ -22,9 +22,9 @@
   <arg name="model" default="$(find kh4_description)/sdf/kh4.urdf"/>
   <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
   
-	<!-- RVIZ configuration -->
+	<!-- RVIZ configuration 
 	<arg name="rvizconfig" default="/home/javier/.rviz/default.rviz" />
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />-->
 
 	<!-- Spawn robot1-->
   <group ns="robot1">

@@ -1,6 +1,18 @@
-clear
-clc
-close all
+function followTrajectory(path, namespace, plot_flag)
+% The following function initilises a MATLAB ROS node that is
+% able to send and retrieve control commands and positional data via
+% various ROS topics in order to perform a trajectory following as
+% specified by the path matrix.
+%
+% Inputs
+%   - path: a matrix consisting of vertically concatenated (x,y)
+%   coordinates
+%   - namespace: string identifier specific to the robot that is being
+%   controlled
+%   - plot_flag: boolean that determines whether to plot trajectory
+%
+% Created by Javier Leguina Peral
+% April 2020
 
 %% Parameters
 robotRadius = 0.14;
@@ -11,13 +23,13 @@ goalError = 0.05; % m (tolerance)
 
 %% Establish ROS connection
 % https://uk.mathworks.com/help/robotics/examples/path-following-for-differential-drive-robot.html
-rosshutdown;
-rosinit('http://localhost:11311');
-sub1 = rossubscriber('/robot1/kh4_controller/odom');
-[pub1,cmd_vel_msg] = rospublisher('/robot1/kh4_controller/cmd_vel','geometry_msgs/Twist');
+% rosshutdown;
+% rosinit('http://localhost:11311');
+sub = rossubscriber(strcat(namespace,'/kh4_controller/odom'));
+[pub,cmd_vel_msg] = rospublisher(strcat(namespace,'/kh4_controller/cmd_vel'),'geometry_msgs/Twist');
 
 %% Define Waypoints
-odom_msg = receive(sub1); % Get data from ROS odom
+odom_msg = receive(sub); % Get data from ROS odom
 robot_pos = [odom_msg.Pose.Pose.Position.X, odom_msg.Pose.Pose.Position.Y];
 robot_rotation = quat2eul([odom_msg.Pose.Pose.Orientation.X, odom_msg.Pose.Pose.Orientation.Y,...
     odom_msg.Pose.Pose.Orientation.Z, odom_msg.Pose.Pose.Orientation.W]);
@@ -25,15 +37,7 @@ robot_orientation = robot_rotation(3);
 
 % Define a set of waypoints for the desired path for the robot
 path = [robot_pos;
-    0  0];
-
-% path = [robot_pos;
-%     0.5000  0.2500
-%     0.3125  0.4375
-%     1.3125  2.0625
-%     1.8125  2.1875
-%     2.9375  1.4375
-%     0.5000  1];
+    path];
 
 % Set the current location and the goal location of the robot as defined
 % by the path.
@@ -88,8 +92,10 @@ distanceToGoal = norm(robotInitialLocation - robotGoal);
 sampleTime = 0.1;
 vizRate = rateControl(1/sampleTime);
 
-% Initialize the figure
-figure
+if plot_flag == 1
+    % Initialize the figure
+    figure
+end
 
 % Determine vehicle frame size to most closely represent vehicle with plotTransforms
 frameSize = robot.TrackWidth/0.8;
@@ -107,10 +113,10 @@ while(distanceToGoal > goalRadius)
     %vel = derivative(robot, robotCurrentPose, [v omega]);
     cmd_vel_msg.Linear.X = v_x;
     cmd_vel_msg.Angular.Z = omega;
-    send(pub1,cmd_vel_msg);
+    send(pub,cmd_vel_msg);
     
     % Update the current pose
-    odom_msg = receive(sub1); % Get data from ROS odom
+    odom_msg = receive(sub); % Get data from ROS odom
     robot_pos = [odom_msg.Pose.Pose.Position.X, odom_msg.Pose.Pose.Position.Y];
     robot_rotation = quat2eul([odom_msg.Pose.Pose.Orientation.X, odom_msg.Pose.Pose.Orientation.Y,...
         odom_msg.Pose.Pose.Orientation.Z, odom_msg.Pose.Pose.Orientation.W]);
@@ -121,23 +127,26 @@ while(distanceToGoal > goalRadius)
     % Re-compute the distance to the goal
     distanceToGoal = norm(robotCurrentPose(1:2) - robotGoal(:));
     
-    % Update the plot
-    hold off
+    if plot_flag == 1
+        % Update the plot
+        hold off
+        
+        % Plot path each instance so that it stays persistent while robot mesh
+        % moves
+        plot(path(:,1), path(:,2),"k--d")
+        hold all
+        
+        % Plot the path of the robot as a set of transforms
+        plotTrVec = [robotCurrentPose(1:2); 0];
+        plotRot = axang2quat([0 0 1 robotCurrentPose(3)]);
+        plotTransforms(plotTrVec', plotRot, "MeshFilePath", "groundvehicle.stl", "Parent", gca, "View","2D", "FrameSize", frameSize);
+        light;
+        xlim([0 4])
+        ylim([0 4])
+        
+        waitfor(vizRate);
+    end
     
-    % Plot path each instance so that it stays persistent while robot mesh
-    % moves
-    plot(path(:,1), path(:,2),"k--d")
-    hold all
-    
-    % Plot the path of the robot as a set of transforms
-    plotTrVec = [robotCurrentPose(1:2); 0];
-    plotRot = axang2quat([0 0 1 robotCurrentPose(3)]);
-    plotTransforms(plotTrVec', plotRot, "MeshFilePath", "groundvehicle.stl", "Parent", gca, "View","2D", "FrameSize", frameSize);
-    light;
-    xlim([0 4])
-    ylim([0 4])
-    
-    waitfor(vizRate);
 end
 
-rosshutdown
+end
