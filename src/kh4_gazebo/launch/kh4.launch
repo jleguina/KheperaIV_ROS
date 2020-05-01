@@ -37,7 +37,7 @@
   </group>
   
   
-	<!-- Spawn robot2 -->
+	<!-- Spawn robot2 
   <group ns="robot2">
 		<param name="tf_prefix" value="robot2"/>
     <include file="$(find kh4_gazebo)/launch/spawn_kh4.launch">
@@ -45,7 +45,7 @@
       <arg name="pos_x" value="1.0"/>
       <arg name="namespace_arg" value="/robot2"/>
     </include>
-  </group>
+  </group>-->
   
 	<!-- Spawn robot3 
   <group ns="robot3">
