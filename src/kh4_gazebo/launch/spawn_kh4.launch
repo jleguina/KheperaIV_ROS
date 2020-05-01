@@ -9,7 +9,7 @@
 	<!--<param name="tf_prefix" type="string" value="$(arg namespace_arg)"/>-->
 	
   <!-- Spawn general model for the kh4 -->
-  <arg name="model" default="$(find kh4_description)/sdf/kh4.urdf" />
+  <arg name="model" default="$(find kh4_description)/sdf/$(arg namespace_arg)_kh4.urdf" />
   <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
   
   <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
@@ -39,12 +39,12 @@
 
 	<!--
 	<arg name="rvizconfig" default="$(find kh4_description)/rviz/urdf.rviz" />
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
-	-->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />-->
+	
 	
 	<!-- Controller -->
   <rosparam command="load"
-            file="$(find kh4_gazebo)/config/$(arg namespace_arg)_diff_drive.yaml"
+            file="$(find kh4_control)/config/$(arg namespace_arg)_diff_drive.yaml"
             ns="kh4_controller" />
 
   <node name="kh4_controller_spawner" 
@@ -52,10 +52,10 @@
   			type="spawner"
     		args="kh4_controller"/>
 
-	<!-- Joystick -->
+	<!-- Joystick-->
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="$(arg namespace_arg)/kh4_controller/cmd_vel"/>
-  </node>
+  </node> 
   
 
 </launch>

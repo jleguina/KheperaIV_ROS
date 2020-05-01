@@ -239,7 +239,7 @@
       </ray>
       <plugin name="gazebo_laser_controller" filename="libgazebo_ros_laser.so">
         <!-- <robotNamespace></robotNamespace>-->
-				<topicName>/sensor_msgs/IR</topicName>
+				<topicName>/robot1/sensor_msgs/IR</topicName>
         <frameName>IR_link</frameName>
       </plugin>
     </sensor>
@@ -327,7 +327,7 @@
       </ray>
       <plugin name="gazebo_sonar_controller" filename="libgazebo_ros_laser.so">
 				<!--<robotNamespace></robotNamespace>-->
-        <topicName>/sensor_msgs/SonarScan</topicName>
+        <topicName>/robot1/sensor_msgs/SonarScan</topicName>
         <frameName>sonar_link</frameName>
       </plugin>
     </sensor>

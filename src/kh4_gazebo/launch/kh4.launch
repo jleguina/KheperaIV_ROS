@@ -1,6 +1,5 @@
 <launch>
-
-  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+	<!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
@@ -16,8 +15,8 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="headless" value="$(arg headless)"/>
   </include>
-  
-  
+ 
+
   <!-- Spawn general model for the kh4 -->
   <arg name="model" default="$(find kh4_description)/sdf/kh4.urdf"/>
   <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
@@ -29,6 +28,7 @@
 	<!-- Spawn robot1-->
   <group ns="robot1">
   	<param name="tf_prefix" value="robot1"/>
+		
     <include file="$(find kh4_gazebo)/launch/spawn_kh4.launch">
       <arg name="name" value="/robot1"/>
       <arg name="pos_x" value="0.0"/>
@@ -46,7 +46,16 @@
       <arg name="namespace_arg" value="/robot2"/>
     </include>
   </group>
-
+  
+	<!-- Spawn robot3 
+  <group ns="robot3">
+		<param name="tf_prefix" value="robot3"/>
+    <include file="$(find kh4_gazebo)/launch/spawn_kh4.launch">
+      <arg name="name" value="/robot3"/>
+      <arg name="pos_x" value="2.0"/>
+      <arg name="namespace_arg" value="/robot3"/>
+    </include>
+  </group>-->
   
   
 </launch>
